@@ -12,7 +12,7 @@ The calibration process utilizes the stress-strain data for different types of m
 - 5: Pure shear in the xz plane
 - 6: Pure shear in the yz plane
 
-The first six columns are for strain components ($\varepsilon_{11}, \varepsilon_{22}, \varepsilon_{33}, \varepsilon_{12}, \varepsilon_{13}, and \varepsilon_{23}$), followed by six columns corresponding to the stress components ($\sigma__{11}, \sigma_{22}, \sigma_{33}, \sigma_{12}, \sigma_{13}, \sigma_{23}$).
+The first six columns are for strain components ($\varepsilon_{11}, \varepsilon_{22}, \varepsilon_{33}, \varepsilon_{12}, \varepsilon_{13}, and \varepsilon_{23}$), followed by six columns corresponding to the stress components ($\sigma_{11}, \sigma_{22}, \sigma_{33}, \sigma_{12}, \sigma_{13}, \sigma_{23}$).
 
 After processing, the material parameters are saved in the specified directory under `figures/model_data_folder_name/Parameter File Name`. Corresponding figures and results are also stored in this directory.
 
@@ -31,6 +31,7 @@ To set up the Material Parameter Calibration project, simply clone or download t
 To execute the calibration process, navigate to the project directory and run the main script:
 
 ```matlab
+git clone https://github.com/Jamal-dev/material_parameters_calibaration/
 main.m
 ```
 - Within the GUI:
@@ -55,4 +56,4 @@ If you have any questions or feedback regarding this project, please feel free t
 ## License
 
 This project is open-sourced under the MIT license. See the LICENSE file for details.
-```
+
