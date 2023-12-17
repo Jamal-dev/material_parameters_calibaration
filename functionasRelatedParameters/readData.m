@@ -1,0 +1,23 @@
+function [T,eps_nominal_Matrix, ...
+            sigDevMatrix, ...
+            sigMatrix] ...
+                    =readData(filepath)
+
+    columNames = {'eps11','eps22','eps33','eps12','eps13','eps23', ...
+        'sig11','sig22','sig33','sig12','sig13','sig23','loadType'};
+    opt = detectImportOptions(filepath);
+    opt.VariableNames = columNames;
+    T = readtable(filepath,opt);
+    eps_nominal_Matrix = [T.eps11,T.eps22,T.eps33,T.eps12,T.eps13,T.eps23];
+    sigDevMatrix = zeros(length(T.sig11),6);
+    for k = 1:length(T.sig11)
+        temp = [T.sig11(k), T.sig12(k), T.sig13(k); ...
+                T.sig12(k), T.sig22(k), T.sig23(k); ...
+                T.sig13(k), T.sig23(k), T.sig33(k)];
+        devS = deviatoric(temp);
+        sigDevMatrix(k,:) = [devS(1,1),devS(2,2),devS(3,3), ...
+                          devS(1,2),devS(1,3),devS(2,3)  ];
+    end
+    sigMatrix = [T.sig11,T.sig22,T.sig33,T.sig12,T.sig13,T.sig23,T.loadType];
+
+end
